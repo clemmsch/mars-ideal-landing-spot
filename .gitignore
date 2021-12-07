@@ -1,1 +1,7 @@
 /target
+*.aux
+*.fbd_*
+*.fls
+*.log
+*.pdf
+*.gz
