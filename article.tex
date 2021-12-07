@@ -1,0 +1,95 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc} % Required
+\usepackage{lettrine} % Make first letter large
+\usepackage[base]{babel} % Proper Latin hyphens
+\usepackage{fontspec} % Use custom fonts
+\usepackage{lipsum} % Generate Random Text (Lorem Ipsum)
+\usepackage[a4paper, total={6in, 8in}]{geometry} % Change format to A4
+\usepackage{multicol} % Three Columns (SN wants that)
+\usepackage{fancyhdr} % Header
+\usepackage[dvipsnames]{xcolor} % Many colors (Many)
+\usepackage{lmodern}
+\usepackage[T1]{fontenc} 
+
+% The color SN uses for
+% the header
+\definecolor{SNBlue}{HTML}{005AAF} % Whoever decided to call HEX color codes HTML Color Codes should be tried for murder
+
+% Customizing the header
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\textbf{Dec. 24, 2014}}
+\fancyhead[L]{\textbf{Page 4}}
+\fancyhead[C]{\textbf{\color{SNBlue}{SPACEPORT NEWS}}}
+
+% Thicccer header
+\renewcommand{\headrulewidth}{1pt}
+% Set Header Color
+\renewcommand{\headrule}{{%
+    \color{SNBlue}\hrule height \headrulewidth\hfill}
+}
+
+\title{MarsAnalysis}
+\date{December 2021}
+
+% Font
+\setmainfont[
+    Path=fonts/,
+    BoldItalicFont=Carlito-BoldItalic.ttf,
+    BoldFont=Carlito-Bold.ttf,
+    ItalicFont=Carlito-Italic.ttf,
+    SizeFeatures={Size=11}
+]{Carlito-Regular.ttf} % Set Font
+% Document
+
+\begin{document}
+% Title
+\noindent
+{\fontsize{40pt}{42pt}
+    \selectfont \textbf{ML strengthened for next generation.}
+}
+
+\vspace{\baselineskip} % Prettier line
+
+% Author + Date
+\noindent % No Annoying Space at start of paragraph
+\textbf{\emph{By Clemens Schütz}} % TextBF = Bold, Emph = Italic
+
+\noindent % same here
+\emph{Spaceport News}
+
+
+\begin{multicols}{3}% Start layout
+
+\noindent
+\lettrine[lraise=0.1, nindent=0em, slope=-.5em]{\textbf{H}}{umanities} need
+to explore that unbeknownst to it is as old as
+the human thyself. 
+\noindent
+No matter what was discovered and uncovered, the human yearned for more - For better, or for worse. 
+It comes to no suprise, that since the day that humanity has learned about what lies beyond
+the blue tint of our sky, it has longed to
+explore it.
+And we have managed to do so well.
+We have reconnoitred the hills of the moon
+which seems to be so afar just 63 years ago - A Timespan that while seeming lingering is truly insignificant in the long history of human exploration.
+After fulfilling this long-standing wish of humanity, it
+would have been uncustomary, unnatural even, for humanity to be satisfied.
+It set it's eyes on it's next target. Our Red Neighbour.
+Yet still, 5 duodecennials after mankind has not been able to land a human being on our neighbour.
+Even though it may seem as if little has progressed, this seems so only at first glance.
+At second glance, one realizes just how much we have progressed.
+If the quest to land a human on mars was a race, we would be approaching the finish line at exponential speed.
+Still, a plethora of issues must still be adressed, questions must be answered and math must be solved. % Look at this again
+\\ % Newline
+One of said questions is the long-standing question of where to land.
+Some consider this a question easily solved, but this also seems so only at first glance - Just like so many problems in the world of aerospace engineering.
+If a group of 100 scientists, each of them in different fields, was asked the question asked above, responses would diverge from each other massively. 
+This is why the will of scientists must not influence the ultimate landing spot.
+Additionally, space agencies should first contrive to land a human on mars before making promises to researchers.
+The above reasons contribute to the idea that the ideal landing spot should be decided through data.
+The data used in this article are very simple maps.
+
+\end{multicols}
+\end{document}
