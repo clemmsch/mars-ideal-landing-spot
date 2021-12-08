@@ -3,6 +3,5 @@
 *.fbd_*
 *.fls
 *.log
-*.pdf
 *.gz
 *.fdb_latexmk
