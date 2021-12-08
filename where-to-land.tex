@@ -33,6 +33,7 @@
     }%
 }
 
+
 % The color SN uses for
 % the header
 \definecolor{SNBlue}{HTML}{005AAF} % Whoever decided to call HEX color codes HTML Color Codes should be tried for murder
@@ -66,17 +67,17 @@
 
 \begin{document}
 
-
 {
     \noindent
     \begin{center}
         \topskip0pt
         \vspace*{\fill}
-        This is the result of having too much leisure time on one weekend.
-        This was styled to the original space-port magazine from 2014. The new ones are ugly (minus the font).
-        (Also a result of too much leisure time).
-        Don't be shocked about the page count, there are a \textbf{lot} of images.
-        This is a PDF so that words cannot be counted.
+        This is the result of having too much leisure time on one weekend.\\
+        The first page was styled to look like the original space-port magazine from 2014 (minus the font). The new ones are ugly. \\
+        (Also a result of too much leisure time).\\
+        Don't be shocked about the page count, there are a \textbf{lot} of images.\\
+        This is a PDF so that words cannot be counted. \\
+        Topic was the landing spot on Mars.
         \vspace*{\fill}
     \end{center}
 }
@@ -156,7 +157,10 @@ In said space, a distance that one color has from another can be calculated usin
 \end{figure}
 \begin{multicols}{3}
 In this context \(*_2\) is either the red \(R\), green \(G\) or blue \(B\) factor of \(Color 2\).
-For \(*_1\) the same applies, just for \(Color 1\).
+For \(*_1\) the same applies, just for \(Color 1\). 
+Then, the distances from all major colors is calculated and the nearest is taken.
+This, unfortunately, makes slight differences in colors useless.
+It would make it way harder to detect said differences, which is why I decided to ignore them. The data analysis was meant to be easy to make, not exact.
 
 \section{The First Analysis}
 In this analysis a total of four maps were used.
@@ -220,7 +224,7 @@ If we remove the map showing topography, we get a much more promising result.
 Without topography, a total amount of \(1725\) pixels are yielded, which fulfill the requirement of having the same colour in all images.
 
 Using this map, we can identify a total of four zones that may be good landing spots.
-The following data is \textbf{very} unreliable. As the maps had \textbf{slightly} different scales, a margin of error of about \(\pm 10 \degree\) in both directions.
+The following data is \textbf{slightly} unreliable. As the maps had \textbf{slightly} different scales, a margin of error of about \(\pm 10 \degree\) in both directions exists.
 \begin{enumerate}
 \item The first one is found around \(45 \degree N (latitude)\) and \(160 \degree W (longitude) \)
 \item The second spot resides around \(45 \degree N (latitude)\) and \(20 \degree E (longitude)\)
@@ -293,8 +297,10 @@ Said spot is an ideal landing spot due to a huge amount of reasons.
     \item The water content is about \(10\%\).
     \item It's daytime-temperatures are about \(-10 \degree C\)
     \item It's nighttime-temperatures range from \(~-55 \degree C\) down to \(~-100 \degree\) depending on altitude. 
-    \item The spot is exactly where the olympus mons is located (Unrelated Note: I am very proud that I was able to read the map, because Elysium-Mons coordinates where exactly the ones i've guessed two sentences before)
+    \item The spot is exactly where the Elysium Mons is located
 \end{enumerate}
+
+Even though it was said before that researchers should be ignored, they should be happy about this place due to the attributes of the Elysium Mons.
 
 \subsection{The Elysium Mons}
 As mentioned before, the ideal landing spot is around the Elysium Mons.
@@ -312,4 +318,12 @@ This suggests that all of these meteorites were ejected by single impact event.
 The differentiating ages of those meteorites plus the crater dimensions suggest a growth rate of the source volcano which is far slower than the expected one.
 This implies that the martian volcanic activity has slowed down greatly by the impact event.
 
+Additionally, a similar conclusion was reached in the paper "GIS analysis of promising landing sites for manned flight to Mars", which lists the Elysium Mons as one of four possible landing locations. \cite{dmtri}
+
+
+\begin{thebibliography}{1}
+    \bibitem{dmtri}
+    Kuziakina, M., Gura, D. and Zverok, D., 2019. GIS analysis of promising landing sites for manned flight to Mars. E3S Web of Conferences, 138, p.02004.
+\end{thebibliography}
+    
 \end{document}
