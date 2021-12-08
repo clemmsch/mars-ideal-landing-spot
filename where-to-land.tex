@@ -15,6 +15,7 @@
 \usepackage{caption}
 \usepackage{gensymb}
 \usepackage{float}
+\usepackage{adjustbox}
 
 \graphicspath{ {./img/} } % Set Graphics Path
 \DeclareGraphicsExtensions{.png,.pdf} % Do not allow JPGs
@@ -73,9 +74,9 @@
         \topskip0pt
         \vspace*{\fill}
         This is the result of having too much leisure time on one weekend.\\
-        The first page was styled to look like the original space-port magazine from 2014 (minus the font). The new ones are ugly. \\
+        The first page was styled to look like the original space-port magazine from 2014 (minus the font). The newer editions look ugly.
         (Also a result of too much leisure time).\\
-        Don't be shocked about the page count, there are a \textbf{lot} of images.\\
+        Please do not be shocked about the page count, there are a \textbf{lot} of images.\\
         This is a PDF so that words cannot be counted. \\
         Topic was the landing spot on Mars.
         \vspace*{\fill}
@@ -108,20 +109,20 @@ to explore that unbeknownst to it is as old as
 the human thyself. 
 \noindent
 No matter what was discovered and uncovered, the human yearned for more - For better, or for worse. 
-It comes to no suprise, that since the day that humanity has learned about what lies beyond
+It comes to no surprise, that since the day that humanity has learned about what lies beyond
 the blue tint of our sky, it has longed to
 explore it.
 And we have managed to do so well.
-We have reconnoitred the hills of the moon
-which seems to be so afar just 63 years ago - A Timespan that while seeming lingering is truly insignificant in the long history of human exploration.
+We have reconnoitered the hills of the moon
+which seems to be so afar just 63 years ago - A time span that while seeming lingering is truly insignificant in the long history of human exploration.
 After fulfilling this long-standing wish of humanity, it
 would have been uncustomary, unnatural even, for humanity to be satisfied.
-It set it's eyes on it's next target. Our Red Neighbour.
-Yet still, 5 duodecennials after mankind has not been able to land a human being on our neighbour.
+It set it's eyes on it's next target. Our Red Neighbor.
+Yet still, 5 duodecennials later, mankind has not been able to land a human being on this planet, so near and yet so far.
 Even though it may seem as if little has progressed, this seems so only at first glance.
 At second glance, one realizes just how much we have progressed.
 If the quest to land a human on Mars was a race, we would be approaching the finish line at exponential speed.
-Still, a plethora of issues must still be adressed, questions must be answered and math must be solved. % Look at this again
+Still, a plethora of issues must still be addressed, questions must be answered and math must be solved. % Look at this again
 \\ % Newline
 One of said questions is the long-standing question of where to land.
 Some consider this a question easily solved, but this also seems so only at first glance - Just like so many problems in the world of aerospace engineering.
@@ -142,6 +143,7 @@ All Maps are being read pixel by pixel and stored as an one-dimensional array of
 Then the first array shall be iterated over, comparing itself indexed by the iterative position at \(colors\_of\_first\_image[i]\).
 Let \(i\) be a variable which is incremented each iteration and let the operator \([i]\) return the element of the array at position \(i\).
 If all Colors are equal at said position, the pixel and its color are stored and drawn on a grayscale-version of the image
+As all images have different resolutions, they were all scaled down to \(520,246\), which fits all of NASAs images as it is simply subtracting \(200\) from both sides original value.
 
 In practice, it is as simple as it seems, as soon as one problem is overcome.
 NASA seems to be incapable of deciding on one color-palette for all of their maps.
@@ -151,10 +153,10 @@ In color science, a concept of color space exists, in which all RGB colors can b
 In said space, a distance that one color has from another can be calculated using euclidean geometry very easily and is defined as the following.
 
 \end{multicols}
-\begin{figure}[H]
-\[distance = \sqrt{(R_2 - R_1)^2 + (G_2 - G_1)^2 + (B_2 - B_1)^2}\]
-\caption{Euclidean distance in color space}
-\end{figure}
+    \begin{figure}[H]
+        \[distance = \sqrt{(R_2 - R_1)^2 + (G_2 - G_1)^2 + (B_2 - B_1)^2}\]
+        \caption{Euclidean distance in color space}
+    \end{figure}
 \begin{multicols}{3}
 In this context \(*_2\) is either the red \(R\), green \(G\) or blue \(B\) factor of \(Color 2\).
 For \(*_1\) the same applies, just for \(Color 1\). 
@@ -162,62 +164,65 @@ Then, the distances from all major colors is calculated and the nearest is taken
 This, unfortunately, makes slight differences in colors useless.
 It would make it way harder to detect said differences, which is why I decided to ignore them. The data analysis was meant to be easy to make, not exact.
 
+
 \section{The First Analysis}
 In this analysis a total of four maps were used.
 
 \end{multicols}
-\begin{figure}[H]
-\includegraphics[width=\textwidth]{first/raw/neutron_rad.jpg}
-\captionsource{Neutron Radiation on Mars surface}{NASA/JPL}
-\label{fig:neutron_rad}
-\end{figure}
+    \begin{figure}[H]
+        \maxsizebox{\textwidth}{\textheight}{\includegraphics[width=\textwidth, height=\textheight, keepaspectratio]{first/raw/neutron_rad.jpg}}
+        \captionsource{Neutron Radiation on Mars surface}{NASA/JPL}
+        \label{fig:neutron_rad}
+    \end{figure}
 \begin{multicols}{3}
 
 \end{multicols}
-\begin{figure}[H]
-\noindent\makebox[\textwidth]{
-    \includegraphics[width=\textwidth]{first/raw/radiation.png}
-}
-\captionsource{Potassium on Mars surface}{NASA/JPL}
-\label{fig:raditation}
-\end{figure}
-\begin{multicols}{3}
-
-
-\end{multicols}
-\begin{figure}[H]
-\includegraphics[scale=0.5, width=\textwidth]{first/raw/waterice.png}
-\captionsource{Water content on the surface of Mars}{NASA/JPL}
-\label{fig:waterice}
-\end{figure}
+    \begin{figure}[H]
+        \noindent\makebox[\textwidth]{
+            \maxsizebox{\textwidth}{\textheight}{\includegraphics[width=\textwidth, height=\textheight, keepaspectratio]{first/raw/radiation.png}}
+        }
+        \captionsource{Potassium on Mars surface}{NASA/JPL}
+        \label{fig:raditation}
+    \end{figure}
 \begin{multicols}{3}
 
 
 \end{multicols}
 \begin{figure}[H]
-\includegraphics[scale=0.5, width=\textwidth]{first/raw/topography.jpg}
-\captionsource{Mars's topography}{https://asu.cas.cz}
-\label{fig:topography}
+    \maxsizebox{\textwidth}{\textheight}{\includegraphics[scale=0.5, width=\textwidth, height=\textheight, keepaspectratio]{first/raw/waterice.png}}
+    \captionsource{Water content on the surface of Mars}{NASA/JPL}
+    \label{fig:waterice}
+\end{figure}
+\begin{multicols}{3}
+
+
+\end{multicols}
+\begin{figure}[H]
+    \maxsizebox{\textwidth}{\textheight}{\includegraphics[scale=0.5, width=\textwidth, height=\textheight, keepaspectratio]{first/raw/topography.jpg}}
+    \captionsource{Mars's topography}{https://asu.cas.cz}
+    \label{fig:topography}
 \end{figure}
 
 The following map visualizes all of the maps that have a color in common.
 
 \begin{figure}[H]
-\includegraphics[scale=0.5, width=\textwidth]{first/out/out.first.downscaled.png}
-\captionsource{The End Result of the first analysis}{/}
-\label{fig:result1}
+    \maxsizebox{\textwidth}{\textheight}{\includegraphics[width=\textwidth, height=\textheight, keepaspectratio, height=\textheight, keepaspectratio]{first/out/out.first.downscaled.png}}
+    \captionsource{The End Result of the first analysis}{/}
+    \label{fig:result1}
 \end{figure}
 
 As seen, there is only a small amount of pixels which are the same on all images.
 In total, only \(470\) pixels overlap.
 Interesting is, that all of the overlaps seem to be of the major color \(LightBlue\).
 This may be explained with the fact that \(LightBlue\) represents a moderate value with a tendency to being good.
-Therefore, this is a very good result.
+Unfortunately, this pixel count is too low to get a good result.
+Due to this, the topography map was removed.
+This map required all maps to be at the elevation at which their values were at, which does not produce good results.
 
 \begin{figure}[H]
-\includegraphics[scale=0.5, width=\textwidth]{first/out/out.first.downscaled.without_topo.png}
-\captionsource{The End Result of the first analysis \textbf{without topography}}{/}
-\label{fig:endres_wt}
+    \maxsizebox{\textwidth}{\textheight}{\includegraphics[scale=0.5, width=\textwidth, height=\textheight, keepaspectratio]{first/out/out.first.downscaled.without_topo.png}}
+    \captionsource{The End Result of the first analysis \textbf{without topography}}{/}
+    \label{fig:endres_wt}
 \end{figure}
 
 If we remove the map showing topography, we get a much more promising result.
@@ -231,6 +236,12 @@ The following data is \textbf{slightly} unreliable. As the maps had \textbf{slig
 \item The third spot may be seen at about \(30 \degree N (latitude)\) and \(120 \degree E (longitude)\)
 \item The last spot is found at about \(45 \degree S (latitude)\) and \(60 \degree E (longitude)\)
 \end{enumerate}
+All of those spots are visualized below
+\begin{figure}[H]
+    \maxsizebox{\textwidth}{\textheight}{\includegraphics[scale=0.5, width=\textwidth, height=\textheight, keepaspectratio]{first/out/locos.png}}
+    \captionsource{Locations that may be considered landing spots}{NASA/JPL}
+    \label{fig:tempend}
+\end{figure}
 
 \section{The second analysis}
 Temperature may not be forgotten about entirely.
@@ -239,20 +250,20 @@ As the temperatures diverge so drastically, two maps, one for day and one for th
 The following maps were used.
 
 \begin{figure}[H]
-    \includegraphics[scale=0.5, width=\textwidth]{second/raw//daytime.jpg}
+    \maxsizebox{\textwidth}{\textheight}{\includegraphics[scale=0.5, width=\textwidth, height=\textheight, keepaspectratio]{second/raw//daytime.jpg}}
     \captionsource{Temperature by day on Mars}{NASA/JPL}
     \label{fig:tempbyday}
 \end{figure}
 
 \begin{figure}[H]
-    \includegraphics[scale=0.5, width=\textwidth]{second/raw/nighttime.jpg}
+    \maxsizebox{\textwidth}{\textheight}{\includegraphics[scale=0.5, width=\textwidth, height=\textheight, keepaspectratio]{second/raw/nighttime.jpg}}
     \captionsource{Temperature by night on Mars}{NASA/JPL}
     \label{fig:tempbynight}
 \end{figure}
 If we repeat the above-mentioned process here, the following map is yielded. 
 
 \begin{figure}[H]
-    \includegraphics[scale=0.5, width=\textwidth]{second/out/out.second.downscaled.png}
+    \maxsizebox{\textwidth}{\textheight}{\includegraphics[scale=0.5, width=\textwidth, height=\textheight, keepaspectratio]{second/out/out.second.downscaled.png}}
     \captionsource{The End result of the second analysis}{NASA/JPL}
     \label{fig:tempend}
 \end{figure}
@@ -287,7 +298,17 @@ This spot also fails to meet the requirements
 \section{Conclusion}
 Only one spot was able to reach all of the requirements, while still being within
 This spot is found around \(25 \degree N (latitude)\) and \(120 \degree E (longitude)\), but, as of the margin of error, the ideal spot may be located closer to \(30 \degree N (latitude)\) and \(150 \degree E (longitude)\)  \\
-Said spot is an ideal landing spot due to a huge amount of reasons.
+The location mentioned above is visualized by the following map that was hastily put together in GIMP, which is why it looks bad.
+
+\begin{figure}[H]
+    \maxsizebox{\textwidth}{\textheight}{\includegraphics[scale=0.5, width=\textwidth, height=\textheight, keepaspectratio]{first/out/final.png}}
+    \captionsource{The Conclusion}{NASA/JPL}
+    \label{fig:final}
+\end{figure}
+
+In this figure, the outer red rectangle represents the general area that is recommended, while the inner red rectangle represents the more precise area that is recommended as a landing spot.
+
+Said spot is an ideal landing spot due to a number of reasons.
 \begin{enumerate}
     \item The neutron radiation has a factor of about \(0.75\). \\
     \item Potassium radiation was not detected in huge masses.
