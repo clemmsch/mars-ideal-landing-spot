@@ -1,3 +1,6 @@
+use std::collections::HashMap;
+use std::hash::Hash;
+
 use image::DynamicImage;
 use image::GenericImageView;
 
@@ -70,20 +73,28 @@ pub fn parse_image(img: DynamicImage) -> Vec<RGB> {
 ///
 /// Outputs:
 ///     - Vec<u128>: The vector consisting of all overlap points
-pub fn find_overlaps(inputs: Vec<Vec<Color>>) -> Vec<usize> {
+pub fn find_overlaps(inputs: Vec<Vec<Color>>) -> HashMap<usize, Color> {
+    let mut chint = 0; // Checks that it is always checking all images
+    // .len() does not work?????
+    let shouldbe = inputs.len();
+    println!("{}", shouldbe);
+
     let len_first = inputs[0].len();
     for (idx, vector) in inputs.iter().enumerate() {
+        chint += 1;
         if vector.len() != len_first {
             panic!(
-                "The vector at {} (Len: {}) does not match the size of vec1 ({})",
+                "The vector at inputs[{}] (Len: {}) does not match the size of inputs[0] ({})",
                 idx,
                 vector.len(),
                 len_first
             );
         }
     }
+    if chint != shouldbe { panic!("Check-Int should be {}, but is {}", shouldbe, chint); };
+    chint = 0;
 
-    let mut overlaps: Vec<usize> = vec![];
+    let mut overlaps: HashMap<usize, Color> = HashMap::new();
     // We cannot zip() as size of inputs is unknown as of compile time
     for (idx, color) in inputs[0].iter().enumerate() {
         // White and Black may be skipped
@@ -93,15 +104,25 @@ pub fn find_overlaps(inputs: Vec<Vec<Color>>) -> Vec<usize> {
 
         // We cannot iterate *directly* over inputs again as Vec<> does not implement
         // Copy. Therefore, we have to implement it using this
-        for pos in 1..inputs.len() {
+        let mut is_overlap = true;
+        for pos in 0..inputs.len() {
+            if !is_overlap { break; }
+
+
+            chint += 1;
             if &inputs[pos][idx] == color {
-                println!("Found at {} ({:#?} == {:#?})", idx, &inputs[pos][idx], color);
-                overlaps.push(idx)
-            } else {
                 continue;
+            } else {
+                is_overlap = false;
             }
         }
+
+        if is_overlap {
+            overlaps.insert(idx, *color);
+        }
     }
+
+//    if chint != shouldbe { panic!("Check-Int should be {}, but is {}", shouldbe, chint); };
 
     overlaps
 }
